@@ -34,13 +34,11 @@ class PicFragment(var category: String) : BaseFragment<FragmentPicBinding>(), On
     private val list = ArrayList<Pic>()
     private lateinit var mAdapter: PicAdapter
     private lateinit var mLayoutManager: GridLayoutManager
-//    private var num = 0
     private lateinit var picDaoImpl: PicDaoImpl
     private lateinit var refreshLayout: RefreshLayout
     private var random = 0
 
     override fun initData() {
-        Log.d(TAG, "initData: $random")
         mAdapter = PicAdapter(requireContext(), list, this)
         mLayoutManager = GridLayoutManager(context, 2)
         mBinding.recyclerView.apply {
@@ -56,18 +54,18 @@ class PicFragment(var category: String) : BaseFragment<FragmentPicBinding>(), On
     override fun initEvent() {
         load()
         refreshLayout.setOnRefreshListener {
-//            num = 0
+//            mAdapter.notifyDataSetChanged()
             list.clear()
             load()
         }
         refreshLayout.setOnLoadMoreListener {
-//            num++
             load()
         }
     }
 
     private fun load() {
         random = (0..200).random()
+        Log.d(TAG, "load: $random")
         val url = Constants.getPicByCategory(category, LIMIT, random)
         val request: Request = Request.Builder()
             .url(url)
