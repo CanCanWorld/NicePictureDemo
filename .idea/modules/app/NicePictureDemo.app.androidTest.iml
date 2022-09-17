@@ -91,12 +91,7 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/3d3eb07fb065e6293a4d0fd716230782/transformed/jetified-gson-2.8.9.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/7e208ff20223b5da8b95f02f3f9e7ec5/transformed/jetified-mmkv-1.2.13-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/66d774832ab58a8d93b157beb1e2535c/transformed/jetified-refresh-layout-kernel-2.0.5-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/f58cf87bb7036e71d923c1e9aa712b5c/transformed/jetified-refresh-header-two-level-2.0.5-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/49c2931420e520bf22b93613f2c30df4/transformed/jetified-refresh-header-classics-2.0.5-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/ea63ada07fdee9eff90738737d9204f8/transformed/jetified-refresh-header-radar-2.0.5-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/fd7d0ba2ccecb602a77991ecaacdfa4f/transformed/jetified-refresh-header-falsify-2.0.5-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/2c2b243696488d02cb3764e1396c454f/transformed/jetified-refresh-header-material-2.0.5-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/4f685d617dd100b7cbfdf3e9dbbc2066/transformed/jetified-refresh-footer-ball-2.0.5-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/9c769ad2fd3c77208092a284417b8ef5/transformed/jetified-refresh-footer-classics-2.0.5-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/555b0c05b71adac110c8990d611d7099/transformed/jetified-kotlin-stdlib-jdk7-1.7.10.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/139a039ac4b20491c13b2656b1d48452/transformed/jetified-kotlinx-coroutines-android-1.3.0.jar</arg>
@@ -257,11 +252,6 @@
     <orderEntry type="library" scope="TEST" name="Gradle: io.github.scwang90:refresh-header-classics:2.0.5@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: io.github.scwang90:refresh-footer-classics:2.0.5@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: io.github.scwang90:refresh-drawable-paint:2.0.5@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: io.github.scwang90:refresh-header-radar:2.0.5@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: io.github.scwang90:refresh-header-falsify:2.0.5@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: io.github.scwang90:refresh-header-material:2.0.5@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: io.github.scwang90:refresh-header-two-level:2.0.5@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: io.github.scwang90:refresh-footer-ball:2.0.5@aar" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="NicePictureDemo.app.main" />
 </module>

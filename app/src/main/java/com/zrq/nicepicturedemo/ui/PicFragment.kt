@@ -21,8 +21,9 @@ import com.zrq.nicepicturedemo.db.PicDatabaseHelper
 import com.zrq.nicepicturedemo.utils.Constants
 import okhttp3.*
 import java.io.IOException
+import kotlin.random.Random
 
-class PicFragment : BaseFragment<FragmentPicBinding>(), OnItemClickListener {
+class PicFragment(var category: String) : BaseFragment<FragmentPicBinding>(), OnItemClickListener {
     override fun providedViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -33,11 +34,13 @@ class PicFragment : BaseFragment<FragmentPicBinding>(), OnItemClickListener {
     private val list = ArrayList<Pic>()
     private lateinit var mAdapter: PicAdapter
     private lateinit var mLayoutManager: GridLayoutManager
-    private var num = 0
+//    private var num = 0
     private lateinit var picDaoImpl: PicDaoImpl
     private lateinit var refreshLayout: RefreshLayout
+    private var random = 0
 
     override fun initData() {
+        Log.d(TAG, "initData: $random")
         mAdapter = PicAdapter(requireContext(), list, this)
         mLayoutManager = GridLayoutManager(context, 2)
         mBinding.recyclerView.apply {
@@ -53,19 +56,19 @@ class PicFragment : BaseFragment<FragmentPicBinding>(), OnItemClickListener {
     override fun initEvent() {
         load()
         refreshLayout.setOnRefreshListener {
-            num = 0
+//            num = 0
             list.clear()
             load()
         }
         refreshLayout.setOnLoadMoreListener {
-            num++
+//            num++
             load()
         }
     }
 
     private fun load() {
-        val url =
-            "${Constants.PIC_BASE_URL}${Constants.GET_PIC}?limit=$LIMIT&skip=${num * LIMIT}&adult=false&first=0&order=hot"
+        random = (0..200).random()
+        val url = Constants.getPicByCategory(category, LIMIT, random)
         val request: Request = Request.Builder()
             .url(url)
             .method("GET", null)
@@ -84,7 +87,6 @@ class PicFragment : BaseFragment<FragmentPicBinding>(), OnItemClickListener {
                         result.res.vertical.forEach {
                             list.add(Pic(it.img, it.thumb))
                         }
-                        Log.d(TAG, "onResponse: list size is ${list.size}, num is $num")
                         requireActivity().runOnUiThread {
                             mAdapter.notifyItemRangeInserted(list.size, LIMIT)
                             refreshLayout.finishLoadMore()
@@ -98,7 +100,8 @@ class PicFragment : BaseFragment<FragmentPicBinding>(), OnItemClickListener {
 
     companion object {
         const val TAG = "PicFragment"
-        const val LIMIT = 30
+        const val LIMIT = 20
+        fun newInstance(category: String) = PicFragment(category)
     }
 
     override fun onClick(view: View, position: Int) {
@@ -109,7 +112,6 @@ class PicFragment : BaseFragment<FragmentPicBinding>(), OnItemClickListener {
 
     override fun onLongClick(view: View, position: Int): Boolean {
         Toast.makeText(requireContext(), "已收藏", Toast.LENGTH_SHORT).show()
-
         picDaoImpl.addPic(list[position])
         return true
     }

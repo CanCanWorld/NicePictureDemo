@@ -8,7 +8,6 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
-import com.tencent.mmkv.MMKV
 import com.zrq.nicepicturedemo.adapter.OnItemClickListener
 import com.zrq.nicepicturedemo.adapter.PicAdapter
 import com.zrq.nicepicturedemo.bean.Pic
@@ -34,7 +33,6 @@ class LoveActivity : AppCompatActivity(), OnItemClickListener {
     private lateinit var mLayoutManager: GridLayoutManager
 
     private fun initData() {
-        MMKV.initialize(this)
         picDaoImpl = PicDaoImpl(PicDatabaseHelper(this))
         list = picDaoImpl.listAllPics()
         list.forEach {
