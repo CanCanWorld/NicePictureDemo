@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.tencent:mmkv:1.2.13@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/edc7902d9e11ed4a29115b7b22636782/transformed/mmkv-1.2.13/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/94b4a27b9c2fbeced457f845496b84c0/transformed/jetified-mmkv-1.2.13/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/94b4a27b9c2fbeced457f845496b84c0/transformed/jetified-mmkv-1.2.13/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/94b4a27b9c2fbeced457f845496b84c0/transformed/jetified-mmkv-1.2.13/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tencent/mmkv/1.2.13/67c6fc8e48845c1b017d5cdc2acbf0e94ffafa22/mmkv-1.2.13-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>
