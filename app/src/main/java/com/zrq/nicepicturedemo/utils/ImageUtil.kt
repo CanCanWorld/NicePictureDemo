@@ -1,5 +1,6 @@
 package com.zrq.nicepicturedemo.utils
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
@@ -17,12 +18,15 @@ import java.io.InputStream
 import java.lang.Exception
 import java.net.HttpURLConnection
 import java.net.URL
+import java.text.SimpleDateFormat
+import java.util.*
 
 object ImageUtil {
 
     private const val TAG = "ImageUtil"
     private val handler = Handler(Looper.getMainLooper())
 
+    @SuppressLint("SimpleDateFormat")
     fun saveImage(ctx: Context, url: String, btn: Button) {
         var bitmap: Bitmap? = null
         Thread {
@@ -59,7 +63,10 @@ object ImageUtil {
                     val mkdir = appDir.mkdir()
                     Log.d(TAG, "saveImage: $mkdir")
                 }
-                val fileName = "lsp.jpg"
+                val date = Date()
+                val sdf = SimpleDateFormat("yyyyMMdd_HHmmss")
+                val format = sdf.format(date)
+                val fileName = "lsp$format.jpg"
                 val file = File(appDir, fileName)
                 var fos: FileOutputStream? = null
                 try {

@@ -36,6 +36,7 @@ class PicDaoImpl(
         while (cursor.moveToNext()) {
             pics.add(cursorToPic(cursor))
         }
+        db.close()
         return pics
     }
 

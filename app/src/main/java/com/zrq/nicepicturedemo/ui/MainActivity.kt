@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
     private val list = ArrayList<Cate>()
     private lateinit var adapter: ViewPager2Adapter
     private lateinit var animHide: ObjectAnimator
+    private var isFirst = true
 
     private fun initData() {
         animHide =
@@ -74,8 +75,11 @@ class MainActivity : AppCompatActivity() {
                 positionOffsetPixels: Int
             ) {
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels)
-                mBinding.tvCategory.alpha = 1f
-                mBinding.tvCategory.visibility = View.VISIBLE
+                if (!isFirst) {
+                    mBinding.tvCategory.alpha = 1f
+                    mBinding.tvCategory.visibility = View.VISIBLE
+                }
+                isFirst = false
                 if (positionOffset < 0.5) {
                     mBinding.tvCategory.text = list[position].name
                 } else {

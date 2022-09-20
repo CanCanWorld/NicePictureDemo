@@ -1,5 +1,6 @@
 package com.zrq.nicepicturedemo.ui
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
@@ -21,6 +22,8 @@ import com.zrq.nicepicturedemo.db.PicDatabaseHelper
 import com.zrq.nicepicturedemo.utils.Constants
 import okhttp3.*
 import java.io.IOException
+import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.random.Random
 
 class PicFragment(var category: String) : BaseFragment<FragmentPicBinding>(), OnItemClickListener {
@@ -51,12 +54,13 @@ class PicFragment(var category: String) : BaseFragment<FragmentPicBinding>(), On
         refreshLayout.setRefreshFooter(ClassicsFooter(requireContext()))
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun initEvent() {
         load()
         refreshLayout.setOnRefreshListener {
-//            mAdapter.notifyDataSetChanged()
             list.clear()
             load()
+            mAdapter.notifyDataSetChanged()
         }
         refreshLayout.setOnLoadMoreListener {
             load()
@@ -64,8 +68,7 @@ class PicFragment(var category: String) : BaseFragment<FragmentPicBinding>(), On
     }
 
     private fun load() {
-        random = (0..200).random()
-        Log.d(TAG, "load: $random")
+        random = Random(Date().time).nextInt(200)
         val url = Constants.getPicByCategory(category, LIMIT, random)
         val request: Request = Request.Builder()
             .url(url)
