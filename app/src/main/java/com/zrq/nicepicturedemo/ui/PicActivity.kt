@@ -1,20 +1,13 @@
 package com.zrq.nicepicturedemo.ui
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.ImageViewTarget
-import com.bumptech.glide.request.transition.Transition
-import com.zrq.nicepicturedemo.R
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.zrq.nicepicturedemo.adapter.MyViewPagerAdapter
+import com.zrq.nicepicturedemo.bean.Pic
 import com.zrq.nicepicturedemo.databinding.ActivityPicBinding
-import com.zrq.nicepicturedemo.utils.ImageUtil
 import com.zrq.nicepicturedemo.utils.StatusBarUtil
-import com.zrq.nicepicturedemo.view.Loading
-import com.zrq.nicepicturedemo.vm.MainViewModel
-
 
 class PicActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,50 +20,19 @@ class PicActivity : AppCompatActivity() {
     }
 
     lateinit var mBinding: ActivityPicBinding
-    lateinit var mainModel: MainViewModel
-    private lateinit var loading: Loading
-    var picUrl = ""
+    lateinit var adapter: MyViewPagerAdapter
 
     private fun initData() {
-        loading = Loading(this)
-        mainModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        picUrl = intent.getStringExtra("picUrl").toString()
-        Glide.with(this)
-            .load(picUrl)
-            .error(R.mipmap.loading_error)
-            .into(object : ImageViewTarget<Drawable>(mBinding.ivBigImg) {
-
-                override fun onLoadStarted(placeholder: Drawable?) {
-                    super.onLoadStarted(placeholder)
-                    Log.d(TAG, "onLoadStarted: ")
-                    loading.show()
-                }
-
-                override fun onResourceReady(
-                    resource: Drawable,
-                    transition: Transition<in Drawable>?
-                ) {
-                    super.onResourceReady(resource, transition)
-                    Log.d(TAG, "onResourceReady: ")
-                }
-
-                override fun setResource(resource: Drawable?) {
-                    mBinding.ivBigImg.setImageDrawable(resource)
-                    loading.dismiss()
-                }
-
-            })
-
+        val listString = intent.getStringExtra("list")
+        val position = intent.getIntExtra("position", 0)
+        val list: ArrayList<Pic> =
+            Gson().fromJson(listString, object : TypeToken<ArrayList<Pic>>() {}.type)
+        adapter = MyViewPagerAdapter(list, this)
+        mBinding.viewPager2Pic.adapter = adapter
+        mBinding.viewPager2Pic.setCurrentItem(position, false)
     }
 
     private fun initEvent() {
-        mBinding.fabHome.setOnClickListener {
-            mBinding.fabHome.hide()
-            finish()
-        }
-        mBinding.btnDownload.setOnClickListener {
-            ImageUtil.saveImage(this, picUrl, mBinding.btnDownload)
-        }
     }
 
     companion object {

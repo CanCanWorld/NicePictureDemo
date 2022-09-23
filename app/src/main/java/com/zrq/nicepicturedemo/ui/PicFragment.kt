@@ -107,7 +107,8 @@ class PicFragment(var category: String) : BaseFragment<FragmentPicBinding>(), On
 
     override fun onClick(view: View, position: Int) {
         val intent = Intent(requireActivity(), PicActivity::class.java)
-        intent.putExtra("picUrl", list[position].picUrl)
+        intent.putExtra("list", Gson().toJson(list))
+        intent.putExtra("position", position)
         startActivity(intent)
     }
 
