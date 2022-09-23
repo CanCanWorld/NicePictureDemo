@@ -47,7 +47,6 @@ class CheckPicFragment(private var picUrl: String) : BaseFragment<FragmentCheckP
 
                 override fun onLoadStarted(placeholder: Drawable?) {
                     super.onLoadStarted(placeholder)
-                    Log.d(PicActivity.TAG, "onLoadStarted: ")
                     loading.show()
                 }
 
@@ -56,7 +55,6 @@ class CheckPicFragment(private var picUrl: String) : BaseFragment<FragmentCheckP
                     transition: Transition<in Drawable>?
                 ) {
                     super.onResourceReady(resource, transition)
-                    Log.d(PicActivity.TAG, "onResourceReady: ")
                 }
 
                 override fun setResource(resource: Drawable?) {

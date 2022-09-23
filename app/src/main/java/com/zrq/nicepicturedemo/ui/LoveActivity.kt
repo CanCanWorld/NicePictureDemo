@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.gson.Gson
 import com.zrq.nicepicturedemo.adapter.OnItemClickListener
 import com.zrq.nicepicturedemo.adapter.PicAdapter
 import com.zrq.nicepicturedemo.bean.Pic
@@ -59,7 +60,8 @@ class LoveActivity : AppCompatActivity(), OnItemClickListener {
 
     override fun onClick(view: View, position: Int) {
         val intent = Intent(this, PicActivity::class.java)
-        intent.putExtra("picUrl", list[position].picUrl)
+        intent.putExtra("list", Gson().toJson(list))
+        intent.putExtra("position", position)
         startActivity(intent)
     }
 
