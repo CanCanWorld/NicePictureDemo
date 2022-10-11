@@ -106,10 +106,10 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/30913e86c237f22a9d7f38478c876e31/transformed/jetified-disklrucache-4.13.2.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/ed08d5d63d0a546224def4fd1f271283/transformed/jetified-annotations-4.13.2.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/7e208ff20223b5da8b95f02f3f9e7ec5/transformed/jetified-mmkv-1.2.13-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/66d774832ab58a8d93b157beb1e2535c/transformed/jetified-refresh-layout-kernel-2.0.5-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/49c2931420e520bf22b93613f2c30df4/transformed/jetified-refresh-header-classics-2.0.5-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/9c769ad2fd3c77208092a284417b8ef5/transformed/jetified-refresh-footer-classics-2.0.5-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/d5d0474e8cf79bd8c3ff62c6000ce079/transformed/jetified-refresh-drawable-paint-2.0.5-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/8edec6398fce12e21ab7ff58eceda288/transformed/jetified-refresh-layout-kernel-2.0.5-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/c36a9dd64c16fb0b567ba7ef9cf912e2/transformed/jetified-refresh-header-classics-2.0.5-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/e9d552ddcbc88bd32556eecb52a653ae/transformed/jetified-refresh-footer-classics-2.0.5-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/484648bba4131e8f06e6afdf93c7ba84/transformed/jetified-refresh-drawable-paint-2.0.5-api.jar</arg>
                 <arg>$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-32/android.jar</arg>
                 <arg>$USER_HOME$/AppData/Local/Android/Sdk/build-tools/30.0.3/core-lambda-stubs.jar</arg>
               </args>
